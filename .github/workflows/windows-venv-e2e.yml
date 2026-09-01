@@ -78,3 +78,11 @@ jobs:
           uv run --no-sync python -m pytest \
             tests/tools/test_process_registry_windows_live.py \
             -o addopts= -v -p no:cacheprovider
+
+      - name: Run gateway Job-Object teardown live E2E (#48820)
+        shell: bash
+        run: |
+          set -uo pipefail
+          uv run --no-sync python -m pytest \
+            tests/hermes_cli/test_gateway_job_teardown_live.py \
+            -o addopts= -v -p no:cacheprovider
